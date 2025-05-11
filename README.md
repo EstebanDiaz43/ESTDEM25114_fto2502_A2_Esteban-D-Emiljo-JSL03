@@ -1,4 +1,4 @@
-# JSL03 Project Brief: Console-Based Task Manager
+# JSL03 Project: A Simple Console-Based Task Manager
 
 ## Description
 
