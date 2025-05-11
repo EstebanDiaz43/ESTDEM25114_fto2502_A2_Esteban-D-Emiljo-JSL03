@@ -73,3 +73,28 @@ const initialTasks = [
     status: "done",
   },
 ];
+
+function addTasks(taskArray, maxNewTasks = 3) {
+  let addedTasks = 0;
+  let lastId = taskArray[taskArray.length - 1]?.id || 0;
+
+  while (addedTasks < maxNewTasks) {
+    const addMore = confirm("Add a new task?");
+    if (!addMore) break;
+
+    const title = prompt("Enter task title:");
+    const description = prompt("Enter task description:");
+    const status = prompt("Enter task status (todo, doing, done):");
+
+    lastId++;
+    const newTask = {
+      id: lastId,
+      title,
+      description,
+      status,
+    };
+
+    taskArray.push(newTask);
+    addedTasks++;
+  }
+}
