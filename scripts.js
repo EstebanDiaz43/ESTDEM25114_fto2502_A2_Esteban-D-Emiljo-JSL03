@@ -74,27 +74,37 @@ const initialTasks = [
   },
 ];
 
-function addTasks(taskArray, maxNewTasks = 3) {
-  let addedTasks = 0;
-  let lastId = taskArray[taskArray.length - 1]?.id || 0;
+function addTasks(TaskArray, maxNewTasks = 3) {
+  let AddedTasks = 0;
+  let lastId = TaskArray[TaskArray.length - 1]?.id || 0;
 
-  while (addedTasks < maxNewTasks) {
-    const addMore = confirm("Add a new task?");
-    if (!addMore) break;
+  while (AddedTasks < maxNewTasks) {
+    const addAnother = confirm("Add a new task?");
+    if (!addAnother) break;
 
     const title = prompt("Enter task title:");
     const description = prompt("Enter task description:");
     const status = prompt("Enter task status (todo, doing, done):");
 
     lastId++;
-    const newTask = {
+    const NewTask = {
       id: lastId,
       title,
       description,
       status,
     };
 
-    taskArray.push(newTask);
-    addedTasks++;
+    TaskArray.push(NewTask);
+    AddedTasks++;
   }
+
+  if (AddedTasks === maxNewTasks) {
+    alert(
+      "There are enough tasks on your board, please check them in the console."
+    );
+  }
+}
+
+function filterCompletedTasks(taskArray) {
+  return taskArray.filter((task) => task.status === "done");
 }
