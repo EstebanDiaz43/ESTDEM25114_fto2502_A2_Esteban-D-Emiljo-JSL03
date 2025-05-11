@@ -108,3 +108,16 @@ function addTasks(TaskArray, maxNewTasks = 3) {
 function filterCompletedTasks(taskArray) {
   return taskArray.filter((task) => task.status === "done");
 }
+
+function logTasks(taskArray) {
+  console.log("All Tasks");
+  console.log(taskArray);
+
+  const completedTasks = filterCompletedTasks(taskArray);
+  console.log("Completed Tasks");
+  console.log(completedTasks);
+}
+
+// Add tasks and display them
+addTasks(initialTasks);
+logTasks(initialTasks);
